@@ -401,8 +401,7 @@ use sp_std::ops::{Mul, Sub};
 			//DepositFailureHandler,
 		>
 		{
-			fn deposit_asset(asset: &MultiAsset, location: &MultiLocation, context: &XcmContext) -> staging_xcm::v3::Result {
-				let sender = context.origin;
+			fn deposit_asset(asset: &MultiAsset, location: &MultiLocation, context: Option<&XcmContext>) -> staging_xcm::v3::Result {
 				
 				match (
 					AccountIdConvert::convert_location(location),
